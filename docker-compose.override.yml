@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  project-list-pokemons.api:
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__SQLiteConnection=Data Source=/data/pokemon_dev.db
+      - RedisConnection=redis:6379
+      - RESET_DATABASE_SQLITE=true
+      - SYNC_INTERVAL_HOURS=1

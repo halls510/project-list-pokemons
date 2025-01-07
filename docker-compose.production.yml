@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+    command: ["redis-server", "--appendonly", "yes"]
+
+  project-list-pokemons.api:
+    build:
+      context: .
+      dockerfile: project-list-pokemons.Api/Dockerfile
+    image: projectlistpokemonsapi
+    container_name: project-list-pokemons
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__SQLiteConnection=Data Source=/data/pokemon.db
+      - RedisConnection=redis:6379
+      - RESET_DATABASE_SQLITE=false
+      - SYNC_INTERVAL_HOURS=24
+    depends_on:
+      - redis
+    networks:
+      - app_network
+    volumes:
+      - sqlite_data:/data
+
+volumes:
+  sqlite_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge

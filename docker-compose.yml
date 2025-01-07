@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+    command: ["redis-server", "--appendonly", "yes"]
+
+  project-list-pokemons.api:
+    build:
+      context: .
+      dockerfile: project-list-pokemons.Api/Dockerfile
+    image: projectlistpokemonsapi
+    container_name: project-list-pokemons
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    networks:
+      - app_network
+    volumes:
+      - sqlite_data:/data
+
+volumes:
+  sqlite_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge

@@ -1,0 +1,6 @@
+@project_list_pokemons.Api_HostAddress = http://localhost:5156
+
+GET {{project_list_pokemons.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
