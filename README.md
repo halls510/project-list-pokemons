@@ -15,6 +15,7 @@
 12. [Estrutura do Projeto](#estrutura-do-projeto)
 13. [Desafios e Soluções](#desafios-e-soluções)
 14. [Evolução e Estratégias Futuras](#evolução-e-estratégias-futuras)
+15. [Apresentação do Projeto](#apresentação-do-projeto)
 15. [Links Úteis](#links-úteis)
 
 ---
@@ -432,6 +433,14 @@ docker-compose -f docker-compose.production.yml up -d
 - Criar integração com serviços de mensageria para sincronização de dados da PokeAPI e melhor gerenciamento de grandes volumes.
 - Expandir a sincronização dinâmica com a PokeAPI para fornecer apenas os dados necessários para aplicações específicas.
 - Melhorar a normalização e validação dos dados armazenados localmente para maior consistência.
+
+---
+
+## **Apresentação do Projeto**
+
+Assista à apresentação do projeto no link abaixo:
+
+- **[Apresentação em Vídeo](https://drive.google.com/file/d/1529HZJxCzLiN76DOgP_OlaMpjzmD66KB/view?usp=sharing)**
 
 ---
 
