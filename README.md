@@ -341,6 +341,11 @@ docker-compose -f docker-compose.production.yml up -d
 ## **Testando a API**
 
 ### **1. Acessando a Documentação (Swagger)**
+- **Observação Importante:** O Swagger está configurado para funcionar **apenas no ambiente de desenvolvimento**. Certifique-se de que o ambiente esteja configurado como `Development` no `appsettings.Development.json` ou via variável de ambiente:
+  ```bash
+  ASPNETCORE_ENVIRONMENT=Development
+  ```
+  
 - Acesse o Swagger para explorar e testar os endpoints da API:
   - **URL:** `http://localhost:5000/swagger`
   - O Swagger permite visualizar a documentação dos endpoints e testá-los diretamente.
